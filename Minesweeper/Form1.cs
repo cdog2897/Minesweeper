@@ -19,11 +19,34 @@ namespace Minesweeper
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 frm = new Form2();
+            int difficulty = trackBar1.Value;
+
+            Form2 frm = new Form2(difficulty, txt_user.Text);
             frm.Show();
             this.Hide();
         }
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form3 frm = new Form3();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            lbl_diff.Text = trackBar1.Value.ToString();
+        }
+
     }
 }
